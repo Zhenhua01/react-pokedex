@@ -4,20 +4,21 @@ import splitDeck from "./helpers";
 import Pokemons from "./Pokemons";
 import Pokedex from "./Pokedex";
 
-function Pokegame() {
-  const deck = splitDeck(Pokemons);
+function Pokegame({Pokedeck = Pokemons}) {
+  const deck = splitDeck(Pokedeck);
   const deckOne = deck[0];
   const deckTwo = deck[1];
+//totalExpOne, Two;
   let sumOne = 0;
   let sumTwo = 0;
+  //reduce
   deckOne.forEach(p => sumOne += p.base_experience);
   deckTwo.forEach(p => sumTwo += p.base_experience);
 
-  let isWinner = sumOne > sumTwo ? sumOne : sumTwo;
   return (
     <div>
-  < Pokedex pokes={deckOne} isWinner = {sumOne===isWinner}/>
-  < Pokedex pokes={deckTwo} isWinner = {sumTwo===isWinner}/>
+  < Pokedex pokes={deckOne} isWinner = {sumOne > sumTwo}/>
+  < Pokedex pokes={deckTwo} isWinner = {sumTwo > sumOne}/>
   </div>
   );
 }
