@@ -1,0 +1,11 @@
+h2 {
+    color: grey;
+}
+
+.Pokedex {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 1000px;
+    justify-content: center;
+}
